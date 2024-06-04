@@ -9,14 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.projetofinal.databinding.FragmentSplashBinding
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
 
 class SplashFragment : Fragment() {
+
     private var _binding: FragmentSplashBinding? = null
     private val binding get() = _binding!!
-    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,24 +24,25 @@ class SplashFragment : Fragment() {
         return _binding!!.root
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Handler(Looper.getMainLooper()).postDelayed(this::checkAuth,3000)
-        auth = Firebase.auth
+        Handler(Looper.getMainLooper()).postDelayed({
+            checkAuth()
+        }, 2000)
     }
 
-    private fun checkAuth(){
-
-        var rota = R.id.action_splashFragment_to_mainFragment
-        if (auth.currentUser == null){
-            rota = R.id.action_mainFragment_to_loginFragment
+    private fun checkAuth() {
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            findNavController().navigate(R.id.action_splashFragment_to_mainFragment)
+        } else {
+            findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
         }
-        findNavController().navigate(rota)
     }
 }

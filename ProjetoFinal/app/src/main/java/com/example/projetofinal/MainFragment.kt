@@ -7,36 +7,34 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.projetofinal.databinding.FragmentMainBinding
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
-
-
+// chave api google maps: AIzaSyAnB0q2f9x-zT6Ug0PN-P5XmPHKQrWiv1U
+//AIzaSyAnB0q2f9x-zT6Ug0PN-P5XmPHKQrWiv1U
 class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
-    private lateinit var auth : FirebaseAuth
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentMainBinding.inflate(inflater,container,false)
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
         return _binding!!.root
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        auth = Firebase.auth
+        auth = FirebaseAuth.getInstance()
 
         binding.btnSignOut.setOnClickListener {
             auth.signOut()
-            findNavController().navigate(R.id.action_mainFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
         }
     }
 }

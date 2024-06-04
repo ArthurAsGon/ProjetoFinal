@@ -2,9 +2,6 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("com.google.gms.google-services")
-    // Add the Google services Gradle plugin
-
-
 }
 
 android {
@@ -30,24 +27,26 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
 
-    viewBinding{
+    viewBinding {
         enable = true
     }
+
     buildFeatures {
         buildConfig = true
     }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -60,8 +59,11 @@ dependencies {
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.database.ktx)
     implementation(libs.firebase.auth)
-
+    implementation ("com.google.android.gms:play-services-maps:18.0.2")
+    implementation ("com.google.android.gms:play-services-location:21.0.1")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
+apply(plugin = "com.google.gms.google-services")

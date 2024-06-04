@@ -10,9 +10,27 @@
         android:id="@+id/btnSignOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="83dp"
-        android:layout_marginEnd="29dp"
+        android:layout_marginTop="552dp"
+        android:layout_marginEnd="148dp"
         android:text="Deslogar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnMaps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="176dp"
+        android:text="Localização"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnDiscip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diciplinas"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="306dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

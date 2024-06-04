@@ -9,49 +9,47 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.projetofinal.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 
 class RegisterFragment : Fragment() {
 
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
-    private lateinit var auth : FirebaseAuth
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentRegisterBinding.inflate(inflater,container,false)
+        _binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return _binding!!.root
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        auth = Firebase.auth
+
+        auth = FirebaseAuth.getInstance()
+
         binding.btnRegister.setOnClickListener {
             val email = binding.edtEmailRG.text.toString()
-            val pwd   = binding.edtPwdRG.text.toString()
+            val pwd = binding.edtPwdRG.text.toString()
 
-            auth.createUserWithEmailAndPassword(email, pwd)
-                .addOnCompleteListener {task ->
-                    if (task.isSuccessful) {
-                        findNavController().popBackStack()
-                    } else {
-                        Toast.makeText(activity, task.exception?.message, Toast.LENGTH_LONG).show()
+            if (email.isNotEmpty() && pwd.isNotEmpty()) {
+                auth.createUserWithEmailAndPassword(email, pwd)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+                        } else {
+                            Toast.makeText(activity, task.exception?.message, Toast.LENGTH_LONG).show()
+                        }
                     }
-                }
-
-        }
-
-        binding.btnCancel.setOnClickListener {
-            findNavController().popBackStack()
+            } else {
+                Toast.makeText(activity, "Please fill out all fields.", Toast.LENGTH_LONG).show()
+            }
         }
     }
-
 }
