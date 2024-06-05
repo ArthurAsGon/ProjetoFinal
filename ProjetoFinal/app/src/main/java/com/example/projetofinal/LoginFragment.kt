@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.projetofinal.databinding.FragmentLoginBinding
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 
 class LoginFragment : Fragment() {
 
@@ -55,5 +57,8 @@ class LoginFragment : Fragment() {
                 Toast.makeText(activity, "Please fill out all fields.", Toast.LENGTH_LONG).show()
             }
         }
+
+
+        auth = Firebase.auth
     }
 }

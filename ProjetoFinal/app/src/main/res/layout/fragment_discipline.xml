@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <!-- Declarações de binding data se necessário -->
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="384dp"
+            android:layout_height="564dp"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnAlterar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inserir" />
+
+        <Button
+            android:id="@+id/btnVoltarMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Voltar" />
+    </LinearLayout>
+</layout>

@@ -34,7 +34,16 @@ class MainFragment : Fragment() {
 
         binding.btnSignOut.setOnClickListener {
             auth.signOut()
-            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+            findNavController().navigate(R.id.action_mainFragment_to_loginFragment)
         }
+        binding.btnMaps.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_mapFragment)
+        }
+        binding.btnDiscip.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_disciplinesFragment)
+        }
+
+
     }
+
 }

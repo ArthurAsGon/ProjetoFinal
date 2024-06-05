@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">ProjetoFinal</string>
+    <string name="nome_da_disciplina">Nome da Disciplina</string>
+    <string name="docente">Docente</string>
+    <string name="dia">Dia</string>
+    <string name="horario">Horário</string>
+    <string name="salvar">Salvar</string>
+    <string name="excluir">Excluir</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>

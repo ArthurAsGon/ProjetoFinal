@@ -40,7 +40,7 @@ class SplashFragment : Fragment() {
     private fun checkAuth() {
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
-            findNavController().navigate(R.id.action_splashFragment_to_mainFragment)
+            findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
         } else {
             findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
         }

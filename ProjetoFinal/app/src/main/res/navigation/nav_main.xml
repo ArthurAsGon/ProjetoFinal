@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/splashFragment">
 
@@ -11,9 +12,6 @@
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_splashFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
     </fragment>
 
     <fragment
@@ -35,6 +33,12 @@
         <action
             android:id="@+id/action_mainFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_disciplinesFragment"
+            app:destination="@id/disciplinesFragment" />
     </fragment>
 
     <fragment
@@ -45,14 +49,32 @@
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.example.projetofinal.MapFragment"
-        android:label="Mapa">
+        android:label="Map">
         <action
-            android:id="@+id/action_mapFragment_to_someOtherFragment"
-            app:destination="@id/s" />
+            android:id="@+id/action_mapFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 
-
+    <fragment
+        android:id="@+id/disciplinesFragment"
+        android:name="com.example.projetofinal.DisciplineFragment"
+        android:label="Disciplinas"
+        tools:layout="@layout/fragment_discipline" >
+        <action
+            android:id="@+id/action_disciplinesFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_disciplinesFragment_to_editDisciplineActivity"
+            app:destination="@id/editDisciplineActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/editDisciplineActivity"
+        android:name="com.example.projetofinal.EditDisciplineActivity"
+        android:label="EditDisciplineActivity" />
 </navigation>
+
+
