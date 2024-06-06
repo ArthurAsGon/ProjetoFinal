@@ -68,13 +68,21 @@
             android:id="@+id/action_disciplinesFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
         <action
-            android:id="@+id/action_disciplinesFragment_to_editDisciplineActivity"
-            app:destination="@id/editDisciplineActivity" />
+            android:id="@+id/action_disciplinesFragment_to_editDisciplineFragment"
+            app:destination="@id/editDisciplineFragment" />
     </fragment>
     <activity
         android:id="@+id/editDisciplineActivity"
         android:name="com.example.projetofinal.EditDisciplineActivity"
         android:label="EditDisciplineActivity" />
+    <fragment
+        android:id="@+id/editDisciplineFragment"
+        android:name="com.example.projetofinal.EditDisciplineFragment"
+        android:label="EditDisciplineFragment" >
+        <action
+            android:id="@+id/action_editDisciplineFragment_to_disciplinesFragment"
+            app:destination="@id/disciplinesFragment" />
+    </fragment>
 </navigation>
 
 

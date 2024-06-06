@@ -1,8 +1,10 @@
+/*
 package com.example.projetofinal
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import com.example.projetofinal.databinding.ActivityEditDisciplineBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -54,9 +56,10 @@ class EditDisciplineActivity : AppCompatActivity() {
         val discipline = Discipline(disciplineId, name, teacher, day, time)
         database.child(disciplineId).setValue(discipline).addOnSuccessListener {
             Toast.makeText(this, "Discipline updated successfully", Toast.LENGTH_SHORT).show()
-            finish()
-        }.addOnFailureListener {
+                   }.addOnFailureListener {
             Toast.makeText(this, "Failed to update discipline", Toast.LENGTH_SHORT).show()
         }
     }
 }
+
+ */

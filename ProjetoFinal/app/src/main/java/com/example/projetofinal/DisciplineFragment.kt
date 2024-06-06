@@ -2,13 +2,12 @@ package com.example.projetofinal
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetofinal.databinding.FragmentDisciplineBinding
@@ -45,7 +44,7 @@ class DisciplineFragment : Fragment(), DisciplineAdapter.OnItemClickListener {
             findNavController().popBackStack()
         }
         binding.btnAlterar.setOnClickListener {
-            findNavController().navigate(R.id.action_disciplinesFragment_to_editDisciplineActivity)
+            findNavController().navigate(R.id.action_disciplinesFragment_to_editDisciplineFragment)
         }
 
 
@@ -62,6 +61,8 @@ class DisciplineFragment : Fragment(), DisciplineAdapter.OnItemClickListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 disciplineList.clear()
                 for (dataSnapshot in snapshot.children) {
+                    val disciplineData = dataSnapshot.value
+                    Log.d("DisciplineData", disciplineData.toString()) // Imprimir dados brutos
                     val discipline = dataSnapshot.getValue(Discipline::class.java)
                     discipline?.let { disciplineList.add(it) }
                 }
@@ -69,13 +70,14 @@ class DisciplineFragment : Fragment(), DisciplineAdapter.OnItemClickListener {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(context, "Failed to load disciplines", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Falha ao carregar disciplinas", Toast.LENGTH_SHORT).show()
             }
         })
     }
 
+
     override fun onItemClick(discipline: Discipline) {
-        val intent = Intent(context, EditDisciplineActivity::class.java)
+        val intent = Intent(context, EditDisciplineFragment::class.java)
         intent.putExtra("DISCIPLINE_ID", discipline.id)
         startActivity(intent)
     }

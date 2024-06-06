@@ -43,7 +43,6 @@ class MapFragment : Fragment(R.layout.fragment_map){
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
 
 
-
     }
     override fun onCreateView(
         inflater: LayoutInflater,

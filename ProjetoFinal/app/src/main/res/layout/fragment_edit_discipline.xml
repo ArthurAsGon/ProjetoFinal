@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+        <!-- Declarações de binding data se necessário -->
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -11,39 +15,31 @@
             android:id="@+id/nameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/nome_da_disciplina"
-            android:autofillHints="username"
-            android:inputType="text" />
+            android:hint="Nome da Disciplina" />
 
         <EditText
             android:id="@+id/teacherEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/docente"
-            android:autofillHints="username"
-            android:inputType="text" />
+            android:hint="Docente" />
 
         <EditText
             android:id="@+id/dayEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/dia"
-            android:autofillHints="date"
-            android:inputType="text" />
+            android:hint="Dia" />
 
         <EditText
             android:id="@+id/timeEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/horario"
-            android:autofillHints="time"
-            android:inputType="text" />
+            android:hint="Horário" />
 
         <Button
             android:id="@+id/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:text="@string/salvar" />
+            android:text="Salvar"
+            android:layout_gravity="end" />
     </LinearLayout>
 </layout>
