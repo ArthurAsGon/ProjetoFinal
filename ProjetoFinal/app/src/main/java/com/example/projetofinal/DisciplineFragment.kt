@@ -61,10 +61,17 @@ class DisciplineFragment : Fragment(), DisciplineAdapter.OnItemClickListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 disciplineList.clear()
                 for (dataSnapshot in snapshot.children) {
-                    val disciplineData = dataSnapshot.value
+                    val disciplineData = dataSnapshot.getValue() as HashMap<*, *>
                     Log.d("DisciplineData", disciplineData.toString()) // Imprimir dados brutos
-                    val discipline = dataSnapshot.getValue(Discipline::class.java)
-                    discipline?.let { disciplineList.add(it) }
+
+                    val id = disciplineData["id"] as String
+                    val name = disciplineData["name"] as String
+                    val teacher = disciplineData["teacher"] as String
+                    val day = disciplineData["day"] as String
+                    val time = disciplineData["time"] as String
+
+                    val discipline = Discipline(id, name, teacher, day, time)
+                    disciplineList.add(discipline)
                 }
                 disciplineAdapter.notifyDataSetChanged()
             }

@@ -21,6 +21,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
+
 class MapFragment : Fragment(R.layout.fragment_map){
 
     private val callback = OnMapReadyCallback { googleMap ->
@@ -51,6 +52,7 @@ class MapFragment : Fragment(R.layout.fragment_map){
     ): View? {
         return inflater.inflate(R.layout.fragment_map, container, false)
     }
+
 
     fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
